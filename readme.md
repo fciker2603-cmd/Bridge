@@ -251,10 +251,29 @@ Extensibilidad independiente: Podemos agregar nuevos dispositivos O nuevos contr
 ### 🤔 Preguntas de Análisis
 
 * Explosión de Clases: ¿Cuántas clases necesitaríamos si tuviéramos 3 tipos de controles y 4 tipos de dispositivos sin el patrón Bridge? ¿Y con el patrón Bridge?
+
+R.- Se necesitarian 12 clases sin Bridge, con bridge usas 7. La diferencia se nota más a medida que aumentan los controles y dispositivos, porque en uno crece como producto y en otro como suma.
+
+
 * Acoplamiento: ¿Qué pasaría si la clase ControlRemotoBasico heredara directamente de Radio o TV en lugar de usar composición?
+
+R.-  No se podría utilizar en TV o Radio respectivamente y tendrías que crear un controlRemotoBasico para ambos.
+
+
 * Extensibilidad: Si quiero agregar un nuevo dispositivo (ej: Projector), ¿qué cambios necesito hacer? ¿Necesito modificar las clases de controles existentes?
+
+R.- No se necesita cambiar a los controles en tanto que no busques añadirle nínguna función extra a alguno de ellos en particular.
+
 * Principios SOLID: ¿Qué principios SOLID se aplican en este patrón? (Especialmente Principio de Inversión de Dependencias y * Principio Abierto/Cerrado)
+
+R.- 
+    -Principio Abierto/Cerrado: Se puede extender implementando nuevos dispositivos pero no es necesario editar las clases que ya existen para ello.
+    -Inversion de Dependencias: Las clases de alto nivel no dependen de las clases de bajo nivel y las implementaciones concretas dependen de las abstracciones. Dispositivo es la interfaz que crea la dependencia
+
 * Flexibilidad: ¿Cómo nos beneficiamos al poder cambiar el dispositivo de un control en tiempo de ejecución?
+
+Es más facil cambiar qué dispositivo controla el control con métodos setter.
+
 ### 🧪 Ejercicios de Extensión
 
 * Agrega un nuevo dispositivo: Implementa la clase Projector y prueba con los controles existentes.
